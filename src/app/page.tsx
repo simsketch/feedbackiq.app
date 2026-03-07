@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { AnimatedDemo } from "@/components/animated-demo";
 
 function Nav() {
   return (
@@ -209,6 +209,160 @@ function HowItWorks() {
   );
 }
 
+function DemoSection() {
+  return (
+    <section className="relative py-24 sm:py-32 border-t border-zinc-800/50">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="mb-16 text-center">
+          <p className="mb-3 font-mono text-sm text-cyan-400">Live demo</p>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">
+            See it in action
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-lg text-zinc-400">
+            Text feedback, screen recordings with webcam — your users show you exactly what they need, and AI turns it into code.
+          </p>
+        </div>
+        <AnimatedDemo />
+      </div>
+    </section>
+  );
+}
+
+function ScreenRecordFeature() {
+  return (
+    <section className="relative py-24 sm:py-32 border-t border-zinc-800/50 overflow-hidden">
+      {/* Accent glow */}
+      <div className="pointer-events-none absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] opacity-20"
+        style={{
+          background: "radial-gradient(ellipse at center, rgba(34,211,238,0.15) 0%, rgba(34,211,238,0) 70%)",
+        }}
+      />
+      <div className="relative mx-auto max-w-6xl px-6">
+        <div className="grid gap-12 lg:grid-cols-2 items-center">
+          {/* Text */}
+          <div>
+            <p className="mb-3 font-mono text-sm text-cyan-400">Screen recording</p>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              Show, don&apos;t just tell
+            </h2>
+            <p className="mt-4 text-lg text-zinc-400 leading-relaxed">
+              Users can record their screen with a webcam overlay to show exactly what they want changed. The AI agent watches the recording to understand context, navigation flows, and visual intent.
+            </p>
+            <ul className="mt-8 space-y-4">
+              {[
+                {
+                  icon: (
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
+                    </svg>
+                  ),
+                  title: "Screen + webcam capture",
+                  desc: "Record your screen with a camera bubble overlay. Show the bug, explain the fix, point at the problem."
+                },
+                {
+                  icon: (
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+                    </svg>
+                  ),
+                  title: "AI-powered analysis",
+                  desc: "Our agent watches the recording, extracts visual context, and combines it with code analysis for better PRs."
+                },
+                {
+                  icon: (
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                    </svg>
+                  ),
+                  title: "Zero friction",
+                  desc: "Built into the widget. No extensions, no downloads. One click to start recording, one click to submit."
+                },
+              ].map((item) => (
+                <li key={item.title} className="flex gap-4">
+                  <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900 text-cyan-400">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-white">{item.title}</h4>
+                    <p className="mt-1 text-sm text-zinc-400 leading-relaxed">{item.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Visual */}
+          <div className="relative">
+            <div className="glow-card rounded-xl bg-[var(--bg-card)] overflow-hidden">
+              {/* Recording preview mockup */}
+              <div className="relative aspect-video bg-zinc-950">
+                {/* Fake screen content */}
+                <div className="absolute inset-4 rounded-lg border border-zinc-800/50 bg-zinc-900/40 p-4">
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="h-2 w-2 rounded-full bg-zinc-700" />
+                    <div className="h-2 w-2 rounded-full bg-zinc-700" />
+                    <div className="h-2 w-2 rounded-full bg-zinc-700" />
+                    <div className="ml-2 h-2 w-24 rounded bg-zinc-800" />
+                  </div>
+                  <div className="grid grid-cols-3 gap-3">
+                    <div className="col-span-1 space-y-2">
+                      {[1,2,3,4,5].map(i => (
+                        <div key={i} className="h-2 rounded bg-zinc-800/60" style={{width: `${60+i*8}%`}} />
+                      ))}
+                    </div>
+                    <div className="col-span-2 space-y-2">
+                      <div className="h-3 w-24 rounded bg-zinc-800" />
+                      <div className="rounded-lg border border-zinc-800/30 p-3 space-y-2">
+                        <div className="h-2 w-full rounded bg-zinc-800/40" />
+                        <div className="h-2 w-3/4 rounded bg-zinc-800/40" />
+                        <div className="h-6 w-20 rounded bg-zinc-800/60 mt-3" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Webcam bubble */}
+                <div className="absolute bottom-4 left-4 w-24 h-24 rounded-full border-[3px] border-cyan-400/70 bg-zinc-800 overflow-hidden shadow-xl shadow-cyan-500/10">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="relative">
+                      <div className="w-8 h-8 rounded-full bg-zinc-600" />
+                      <div className="w-14 h-7 rounded-t-full bg-zinc-600 mt-1 -ml-3" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Recording indicator */}
+                <div className="absolute top-4 right-4 flex items-center gap-2 rounded-full bg-red-500/90 px-3 py-1">
+                  <span className="h-2 w-2 rounded-full bg-white" style={{animation: "pulse-dot 1.5s ease infinite"}} />
+                  <span className="text-xs font-mono text-white font-medium">0:12</span>
+                </div>
+
+                {/* Mouse cursor */}
+                <div className="absolute" style={{top: "45%", left: "60%"}}>
+                  <svg width="16" height="20" viewBox="0 0 12 16" fill="none">
+                    <path d="M1 1L1 12L4 9L7 15L9 14L6 8L10 8L1 1Z" fill="white" stroke="black" strokeWidth="0.5" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Caption bar */}
+              <div className="flex items-center justify-between px-4 py-3 border-t border-zinc-800">
+                <div className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
+                  </svg>
+                  <span className="text-xs text-zinc-400">Screen recording with webcam overlay</span>
+                </div>
+                <span className="text-xs text-zinc-600 font-mono">720p</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Features() {
   const features = [
     {
@@ -244,8 +398,8 @@ function Features() {
           <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
         </svg>
       ),
-      title: "< 10KB widget",
-      desc: "Lightweight vanilla JS. Shadow DOM isolation. No dependencies, no cookies, no tracking. Just feedback.",
+      title: "Screen recording + webcam",
+      desc: "Users record their screen with a webcam overlay. Show the problem, narrate the fix. AI watches and understands.",
     },
     {
       icon: (
@@ -357,7 +511,9 @@ export default function Home() {
       <Nav />
       <main className="grid-bg">
         <Hero />
+        <DemoSection />
         <HowItWorks />
+        <ScreenRecordFeature />
         <Features />
         <CTA />
       </main>

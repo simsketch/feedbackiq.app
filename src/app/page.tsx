@@ -1,4 +1,5 @@
 import { AnimatedDemo } from "@/components/animated-demo";
+import { NavAuthLinks, AuthAwareCta } from "@/components/marketing-auth";
 
 function Nav() {
   return (
@@ -17,18 +18,7 @@ function Nav() {
           <a href="#features" className="hidden text-sm text-zinc-400 transition-colors hover:text-white sm:block">
             Features
           </a>
-          <a
-            href="https://app.feedbackiq.app/login"
-            className="text-sm text-zinc-400 transition-colors hover:text-white"
-          >
-            Log in
-          </a>
-          <a
-            href="https://app.feedbackiq.app/signup"
-            className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-black transition-all hover:bg-zinc-200"
-          >
-            Get started
-          </a>
+          <NavAuthLinks />
         </div>
       </div>
     </nav>
@@ -62,15 +52,15 @@ function Hero() {
           </p>
 
           <div className="animate-fade-up delay-3 mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <a
-              href="https://app.feedbackiq.app/signup"
+            <AuthAwareCta
+              signedOutLabel="Start for free"
+              signedInLabel="Go to dashboard"
               className="group relative inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3.5 text-base font-medium text-black transition-all hover:bg-zinc-200"
             >
-              Start for free
               <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
-            </a>
+            </AuthAwareCta>
             <a
               href="#how-it-works"
               className="inline-flex items-center gap-2 rounded-lg border border-zinc-800 px-8 py-3.5 text-base font-medium text-zinc-300 transition-all hover:border-zinc-700 hover:text-white"
@@ -469,15 +459,15 @@ function CTA() {
           Your users already know what they want. Let them tell you, and let AI do the rest.
         </p>
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-          <a
-            href="https://app.feedbackiq.app/signup"
+          <AuthAwareCta
+            signedOutLabel="Get started free"
+            signedInLabel="Open dashboard"
             className="group inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3.5 text-base font-medium text-black transition-all hover:bg-zinc-200"
           >
-            Get started free
             <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
-          </a>
+          </AuthAwareCta>
         </div>
         <p className="mt-4 text-sm text-zinc-500">No credit card required</p>
       </div>
